@@ -1,0 +1,91 @@
+.audio-player {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(10, 2, 30, 0.7);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(156, 77, 204, 0.3);
+  }
+  
+  .audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .control-button {
+    padding: 0.5rem 1.5rem;
+    background: linear-gradient(45deg, #614ad3, #5ee7df);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(94, 231, 223, 0.4);
+  }
+  
+  .timeline {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .time-display {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 40px;
+  }
+  
+  .seek-slider {
+    flex: 1;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .seek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #5ee7df;
+    cursor: pointer;
+  }
+  
+  .seek-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #5ee7df;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .audio-info-display {
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+  
+  .song-info {
+    display: flex;
+    justify-content: space-between;
+  }

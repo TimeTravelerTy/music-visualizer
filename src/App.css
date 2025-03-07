@@ -1,0 +1,152 @@
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .app-header h1 {
+    font-size: 3rem;
+    color: #b6a4ff;
+    text-shadow: 0 0 10px rgba(182, 164, 255, 0.5);
+    margin-bottom: 0.5rem;
+  }
+  
+  .app-header p {
+    font-size: 1.2rem;
+    color: #9c4dcc;
+  }
+  
+  .app-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .upload-section {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(10, 2, 30, 0.7);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(156, 77, 204, 0.3);
+  }
+  
+  .file-input-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .file-label {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(66, 201, 255, 0.2);
+    border: 2px solid #42c9ff;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-sizing: border-box;
+  }
+  
+  .file-label:hover {
+    background: rgba(66, 201, 255, 0.3);
+  }
+  
+  .upload-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, #614ad3, #5ee7df);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .upload-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(94, 231, 223, 0.4);
+  }
+  
+  .upload-button:disabled {
+    background: #333;
+    cursor: not-allowed;
+  }
+  
+  .status-message {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    color: #5ee7df;
+  }
+  
+  .audio-info {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(10, 2, 30, 0.7);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(156, 77, 204, 0.3);
+  }
+  
+  .audio-info h2 {
+    color: #ff9ed8;
+    margin-bottom: 1rem;
+  }
+  
+  .audio-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .audio-info li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .processing-visualization {
+    margin-top: 2rem;
+    height: 5px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .processing-indicator {
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, #614ad3, #9c4dcc, #ff9ed8);
+    border-radius: 5px;
+    animation: progress 2s ease-in-out infinite alternate;
+    background-size: 200% 100%;
+  }
+  
+  @keyframes progress {
+    0% {
+      background-position: 0% 50%;
+      transform: translateX(0%);
+    }
+    100% {
+      background-position: 100% 50%;
+      transform: translateX(233%);
+    }
+  }
