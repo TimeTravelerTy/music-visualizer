@@ -73,8 +73,11 @@ app.post('/api/upload', upload.single('audioFile'), async (req, res) => {
       fs.mkdirSync(processedDir, { recursive: true });
     }
 
-    // Process the audio file
-    ffmpeg.ffprobe(filePath, (err, metadata) => {
+    // Import our audio processor
+    const audioProcessor = require('./audioProcessor');
+
+    // Process the audio file with basic metadata extraction
+    ffmpeg.ffprobe(filePath, async (err, metadata) => {
       if (err) {
         console.error('Error analyzing audio:', err);
         return res.status(500).json({ error: 'Error analyzing audio file' });
@@ -92,20 +95,23 @@ app.post('/api/upload', upload.single('audioFile'), async (req, res) => {
         fileUrl: `/api/audio/${req.file.filename}`
       };
 
-      // In the full implementation, here we would:
-      // 1. Queue the file for stem separation
-      // 2. Analyze the audio for beat detection, mood, etc.
-      // 3. Generate visualization data
-
-      // For now, we'll just return the audio info and a visualization placeholder
+      // Start async audio processing
+      const processingResult = await audioProcessor.processAudio(filePath, fileName);
+      
+      // Return initial response with basic info
       res.json({
         success: true,
         message: 'File uploaded and analyzed',
         audioInfo,
         fileName: fileName,
         originalName: req.file.originalname,
+        analysisUrl: processingResult.success ? processingResult.analysisPath : null,
+        instrumentDetection: processingResult.success ? processingResult.analysisResult.instrumentDetection : null,
+        processingComplete: processingResult.success,
         visualizationUrl: `/outputs/${fileName}/visualization.mp4` // This would be the generated visualization
       });
+      
+      // Further processing could continue asynchronously here if needed
     });
   } catch (error) {
     console.error('Error processing upload:', error);

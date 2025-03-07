@@ -90,7 +90,8 @@ function App() {
             audioUrl={audioUrl} 
             audioInfo={{
               originalName: selectedFile ? selectedFile.name : 'Unknown Track',
-              ...audioInfo
+              ...audioInfo,
+              instrumentDetection: uploadStatus?.instrumentDetection
             }} 
           />
         )}

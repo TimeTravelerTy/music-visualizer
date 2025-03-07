@@ -89,6 +89,8 @@ const AudioPlayer = ({ audioUrl, audioInfo }) => {
         audioContext={audioContext} 
         analyser={analyser} 
         isPlaying={isPlaying} 
+        audioElement={audioRef.current}
+        instrumentData={audioInfo?.instrumentDetection}
       />
       
       <div className="audio-controls">
